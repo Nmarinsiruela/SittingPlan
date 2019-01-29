@@ -1,29 +1,61 @@
 <ion-header>
   <ion-toolbar>
-    <ion-buttons slot="start">
+    <!-- <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-    <ion-title>
-      Home
+    </ion-buttons> -->
+    <ion-title text-center>
+      SittingPlan
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-    <ion-card class="welcome-card">
-      <ion-img src="/assets/shapes.svg"></ion-img>
-      <ion-card-header>
-        <ion-card-subtitle>Get Started</ion-card-subtitle>
-        <ion-card-title>Welcome to Ionic</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        <p>Now that your app has been created, you'll want to start building out features and components. Check out some of the resources below for next steps.</p>
-      </ion-card-content>
-    </ion-card>
-    <ion-list lines="none">
+  <!-- <ion-card class="welcome-card">
+    <ion-img src="/assets/shapes.svg"></ion-img>
+    <ion-card-header>
+      <ion-card-subtitle>Get Started</ion-card-subtitle>
+      <ion-card-title>Welcome to Ionic</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>Now that your app has been created, you'll want to start building out features and components. Check out some
+        of the resources below for next steps.</p>
+    </ion-card-content>
+  </ion-card> -->
+
+  <ion-grid text-center padding>
+      <ion-row class="planHeader">
+        <ion-col  style="background: #e93535; color: white">
+          <ion-label>'NAME'</ion-label>
+        </ion-col>
+        <ion-col  style="background: #e93535; color: white">
+          <ion-label>'TYPE'</ion-label>
+        </ion-col>
+        <ion-col  style="background: #e93535; color: white">
+          <ion-label>'DATE'</ion-label>
+        </ion-col>
+      </ion-row>
+      <ion-row class="plan" *ngFor="let plan of plans" (click)="selectPlan(plan)">
+        <ion-col >
+          <ion-label>{{plan.name}}</ion-label>
+        </ion-col>
+        <ion-col >
+          <ion-label>{{plan.type}}</ion-label>
+        </ion-col>
+        <ion-col >
+          <ion-label>{{plan.date}}</ion-label>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+  <!-- <ion-list lines="none">
       <ion-list-header>
-        <ion-label>Resources</ion-label>
+        <ion-label>'PLANS'</ion-label>
       </ion-list-header>
+      <ion-item *ngFor="let plan of plans" (click)="selectPlan(plan)">
+          <ion-label>
+              {{plan.name}} - {{plan.type}} - {{plan.date}}
+            </ion-label>
+      </ion-item>
       <ion-item href="https://ionicframework.com/docs/">
         <ion-icon slot="start" color="medium" name="book"></ion-icon>
         <ion-label>Ionic Documentation</ion-label>
@@ -39,6 +71,16 @@
       <ion-item href="https://ionicframework.com/docs/theming/basics">
         <ion-icon slot="start" color="medium" name="color-fill"></ion-icon>
         <ion-label>Theme Your App</ion-label>
-      </ion-item>
-    </ion-list>
+      </ion-item> 
+    </ion-list>-->
+
+  <!-- <ion-fab>
+    <ion-fab-button color="danger" (click)="abrirModal()">"PLAN"</ion-fab-button>
+  </ion-fab> -->
 </ion-content>
+
+<ion-footer>
+    <ion-toolbar style="text-align: -webkit-center">
+          <ion-fab-button color="danger" (click)="abrirModal()">+</ion-fab-button>
+    </ion-toolbar>
+  </ion-footer>

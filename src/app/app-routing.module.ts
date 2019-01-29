@@ -11,10 +11,7 @@ const routes: Routes = [
     path: 'home',
     loadChildren: './home/home.module#HomePageModule'
   },
-  {
-    path: 'list',
-    loadChildren: './list/list.module#ListPageModule'
-  }
+  { path: 'plan-modal', loadChildren: './plan-modal/plan-modal.module#PlanModalPageModule' }
 ];
 
 @NgModule({
