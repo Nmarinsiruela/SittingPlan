@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Plan } from './Plan';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PlanService {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
 
   returnDefaultPlans() {
@@ -25,5 +26,9 @@ export class PlanService {
     const type5 = new Object({'value': 'WORK', 'name': 'WORK'});
     const type6 = new Object({'value': 'OTHER', 'name': 'OTHER'});
     return [type1, type2, type3, type4, type5, type6];
+  }
+
+  navigatePage(destiny: string) {
+    this.router.navigateByUrl(destiny);
   }
 }

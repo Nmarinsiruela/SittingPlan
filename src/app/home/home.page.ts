@@ -31,5 +31,6 @@ export class HomePage {
 
     selectPlan(plan) {
       console.log(plan);
+      this.planService.navigatePage('/plan');
     }
 }
