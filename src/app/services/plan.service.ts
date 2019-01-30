@@ -2,20 +2,27 @@ import { Injectable } from '@angular/core';
 import { Plan } from './Plan';
 import { Router } from '@angular/router';
 
+import { Storage } from '@ionic/storage';
+
 @Injectable({
   providedIn: 'root'
 })
 export class PlanService {
+  private plans: Plan[];
+  private actualPlan: Plan;
+  constructor(private router: Router,
+              private storage: Storage) { }
 
-  constructor(private router: Router) { }
+  getPlans(): Plan[] {
+    return this.plans;
+  }
 
+  setActualPlan(aPlan: Plan) {
+    this.actualPlan = aPlan;
+  }
 
-  returnDefaultPlans() {
-    const plan1 = new Plan('Boda Na', 'WEDDING', '2019-06-07');
-    const plan2 = new Plan('Boda MA', 'WEDDING', '2019-08-11');
-    const plan3 = new Plan('Rol D&D', 'OTHER', '2019-02-03');
-    const plan4 = new Plan('Bautizo Juan', 'BAPTISM', '2019-11-22');
-    return [plan1, plan2, plan3, plan4];
+  getActualPlan() {
+    return this.actualPlan;
   }
 
   returnTypePlans() {
@@ -30,5 +37,34 @@ export class PlanService {
 
   navigatePage(destiny: string) {
     this.router.navigateByUrl(destiny);
+  }
+
+  // STORAGE-RELATED METHODS
+
+  setNewPlan(newPlan: Plan) {
+    newPlan.setId(this.plans.length);
+    console.log(newPlan);
+    this.plans.push(newPlan);
+    this.storage.set('plans', JSON.stringify(this.plans));
+  }
+
+  async getStoredPlans() {
+    return this.getFromStorageAsync('plans').then(plansArray => {
+      const data = JSON.parse(plansArray);
+      console.log('StoredPlans', data);
+      this.plans = data !== null ? data : [];
+      return this.plans;
+    });
+  }
+
+  async getFromStorageAsync(keyStorage) {
+    return await this.storage.get(keyStorage);
+  }
+
+  deletePlan(idPlan: number) {
+    this.plans.splice(idPlan, 1);
+    this.storage.set('plans', JSON.stringify(this.plans));
+
+    // WIP: Deleting a plan will delete its tables and related users.
   }
 }

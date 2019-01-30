@@ -26,7 +26,8 @@ export class PlanModalPage implements OnInit {
     this.planForm = this.formBuilder.group({
       namePlan: ['', Validators.required],
       typePlan: ['', Validators.required],
-      datePlan: [moment().format('YYYY-MM-DD'), Validators.required]
+      datePlan: [moment().format('YYYY-MM-DD'), Validators.required],
+      placePlan: ['']
   });
   }
 
@@ -37,7 +38,6 @@ export class PlanModalPage implements OnInit {
 
   submitData() {
     this.submitted = true;
-    console.log('Modal', this.f.namePlan.value, this.f.datePlan.value);
     if (this.planForm.invalid) {
       // Show an alert, input hints or something to inform the user the fields are invalid.
       // Let's just return for now
@@ -46,7 +46,8 @@ export class PlanModalPage implements OnInit {
     this.modalController.dismiss({
       'name': this.f.namePlan.value,
       'type': this.f.typePlan.value,
-      'date': this.f.datePlan.value
+      'date': this.f.datePlan.value,
+      'place': this.f.placePlan.value
     });
   }
 

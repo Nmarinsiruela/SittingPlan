@@ -4,65 +4,20 @@
       <ion-menu-button></ion-menu-button>
     </ion-buttons> -->
     <ion-title text-center>
-      SittingPlan v0.2
+      Sitting Plan v0.2
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <!-- <ion-card class="welcome-card">
-    <ion-img src="/assets/shapes.svg"></ion-img>
-    <ion-card-header>
-      <ion-card-subtitle>Get Started</ion-card-subtitle>
-      <ion-card-title>Welcome to Ionic</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      <p>Now that your app has been created, you'll want to start building out features and components. Check out some
-        of the resources below for next steps.</p>
-    </ion-card-content>
-  </ion-card> -->
-
-  <!-- <ion-grid text-center padding>
-    <ion-row class="planHeader">
-      <ion-col style="background: #e93535; color: white">
-        <ion-label>'NAME'</ion-label>
-      </ion-col>
-      <ion-col style="background: #e93535; color: white">
-        <ion-label>'TYPE'</ion-label>
-      </ion-col>
-      <ion-col style="background: #e93535; color: white">
-          <ion-label>'DATE'</ion-label>
-        </ion-col>
-        <ion-col>
-          </ion-col>
-    </ion-row>
-    <ion-row class="plan" *ngFor="let plan of plans">
-      <ion-col class="name">
-        <ion-label>{{plan.name}}</ion-label>
-      </ion-col>
-      <ion-col>
-        <ion-label>{{plan.type}}</ion-label>
-      </ion-col>
-      <ion-col>
-        <ion-label>{{plan.date}}</ion-label>
-      </ion-col>
-      <ion-col>
-        <ion-button class="button" (click)="selectPlan(plan)">
-          <ion-icon style="color:black; font-size: 25px" src="../../assets/icon/md-arrow-forward.svg"></ion-icon>
-        </ion-button>
-      </ion-col>
-    </ion-row>
-  </ion-grid> -->
-
+<ion-content padding text-center>
+<ion-text>'MYPLANS'</ion-text>
   <ion-list text-center padding>
-    <ion-list-header text-center>
-      <ion-text>'PLANS'</ion-text>
-    </ion-list-header>
-    <ion-item *ngFor="let plan of plans">
+    <ion-button class="button button-block" style="margin: 10px" (click)="abrirModal()">'NEWPLAN'</ion-button>
+    <ion-item class="plan" *ngFor="let plan of plans">
       <ion-label>
-        <p>{{plan.name}}</p>
-        <p>{{plan.type}}</p>
+        <p>{{plan.type}}: {{plan.name}}</p>
         <p>{{plan.date}}</p>
+        <p>{{plan.place}}</p>
       </ion-label>
       <!-- <ion-label>
         {{plan.type}}
@@ -71,9 +26,9 @@
       <ion-label>
         {{plan.date}}
       </ion-label> -->
-      <ion-button class="button button-full" (click)="selectPlan(plan)">
-        <ion-icon style="color:white; font-size: 35px" src="../../assets/icon/md-arrow-forward.svg"></ion-icon>
-      </ion-button>
+      <button style="background: transparent" (click)="selectPlan(plan)">
+        <ion-icon style="color: gray; font-size: 35px" src="../../assets/icon/ios-arrow-forward.svg"></ion-icon>
+      </button>
     </ion-item>
   </ion-list>
 
@@ -108,9 +63,3 @@
     <ion-fab-button color="danger" (click)="abrirModal()">"PLAN"</ion-fab-button>
   </ion-fab> -->
 </ion-content>
-
-<ion-footer>
-  <ion-toolbar style="text-align: -webkit-center">
-    <ion-fab-button color="danger" (click)="abrirModal()">+</ion-fab-button>
-  </ion-toolbar>
-</ion-footer>

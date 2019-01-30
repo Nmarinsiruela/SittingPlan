@@ -74,10 +74,99 @@
   --ion-color-light-contrast-rgb: 0, 0, 0;
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
+
+  /** turquoise **/
+  --ion-color-turquoise: #006e8c;
+  --ion-color-turquoise-rgb: 0, 107, 137;
+  --ion-color-turquoise-contrast: #ffffff;
+  --ion-color-turquoise-contrast-rgb: 0, 0, 0;
+  --ion-color-turquoise-shade: #006e8c;
+  --ion-color-turquoise-tint: #006e8c;
+  
+  /** wood **/
+  --ion-color-wood: #d39c2f;
+  --ion-color-wood-rgb: 211, 156, 47;
+  --ion-color-wood-contrast: #ffffff;
+  --ion-color-wood-contrast-rgb: 0, 0, 0;
+  --ion-color-wood-shade: #d39c2f;
+  --ion-color-wood-tint: #d39c2f;
+    
+  /** gray **/
+  --ion-color-gray: #929292;
+  --ion-color-gray-rgb: 146, 146, 146;
+  --ion-color-gray-contrast: #ffffff;
+  --ion-color-gray-contrast-rgb: 0, 0, 0;
+  --ion-color-gray-shade: rgb(146, 146, 146);
+  --ion-color-gray-tint: #929292;
+}
+
+@font-face{
+  font-family: 'Amaranth';
+  font-style: normal;
+  font-weight: 700;
+  src: url('../assets/fonts/amaranth.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Actor';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../assets/fonts/Actor.woff2') format('woff2');
+ }
+
+.ion-color-turquoise {
+  --ion-color-base: #006e8c;
+  --ion-color-base-rgb: 0, 107, 137;
+  --ion-color-contrast: #ffffff;
+  --ion-color-contrast-rgb: 255,255,255;
+  --ion-color-shade: #006e8c;
+  --ion-color-tint: #006e8c;
+}
+
+.ion-color-wood {
+  --ion-color-base: rgb(211, 156, 47);
+  --ion-color-base-rgb: 211, 156, 47;
+  --ion-color-contrast: #ffffff;
+  --ion-color-contrast-rgb: 255,255,255;
+  --ion-color-shade: #d39c2f;
+  --ion-color-tint: #d39c2f;
+}
+
+.ion-color-gray {
+  --ion-color-base: #929292;
+  --ion-color-base-rgb: 146, 146, 146;
+  --ion-color-contrast: #ffffff;
+  --ion-color-contrast-rgb: 255,255,255;
+  --ion-color-shade: #929292;
+  --ion-color-tint: #929292;
+}
+
+* {
+  font-family: 'Actor';
+  // font-size: 20px;
+  color: #929292;
+}
+
+ion-toolbar {
+  --background: #d39c2f;
 }
 
 ion-modal {
   padding: 30px;
   background: rgba(0,0,0,0.5);
-  color: #8f8f8f;
+  color: #929292;
+}
+
+ion-button {
+  font-family: 'Amaranth';
+  text-transform: uppercase;
+  padding: 0px;
+  --background: #006e8c;
+  color: white;
+  font-size: 24px;
+}
+
+ion-title {
+  color: white;
+  font-size: 24px;
 }

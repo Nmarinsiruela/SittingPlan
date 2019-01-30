@@ -13,7 +13,6 @@
         </ion-item>
         <ion-item>
           <ion-label position="stacked">'TYPE'</ion-label>
-          <!-- <ion-input formControlName="typePlan" type="text" placeholder="PLANNAME " [ngClass]="{ 'is-invalid': submitted && f.name.errors }"> -->
             <ion-select formControlName="typePlan" placeholder="OTHER" type="text" interface="popover" [ngClass]="{ 'is-invalid': submitted && f.typePlan.errors }">
               <ion-select-option *ngFor="let typeOption of typeOptions" [value]='typeOption.value'>{{typeOption.name}}</ion-select-option>
             </ion-select>
@@ -24,6 +23,11 @@
         <ion-item>
           <ion-label position="stacked">'DATE'</ion-label>
           <ion-input formControlName="datePlan" type="date" [min]="min" max="2030-12-31"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">'PLACE'</ion-label>
+          <ion-input formControlName="placePlan" type="text" placeholder="PLACENAME ">
+          </ion-input>
         </ion-item>
 
       </ion-list>

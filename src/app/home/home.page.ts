@@ -14,23 +14,33 @@ export class HomePage {
   public plans: Plan[];
 
   constructor(private modalController: ModalController, private planService: PlanService) {
-    this.plans = this.planService.returnDefaultPlans();
+    this.plans = [];
   }
 
-    async abrirModal() {
-      const modal = await this.modalController.create({
-          component: PlanModalPage
-      });
+  ionViewWillEnter() {
+    this.planService.getStoredPlans().then(sPlans => {
 
-      modal.present();
+      this.plans = sPlans;
+    });
+  }
 
-      const { data } = await modal.onDidDismiss();
-      console.log(data);
-      this.plans.push(new Plan(data.name, data.type, data.date));
-    }
+  async abrirModal() {
+    const modal = await this.modalController.create({
+      component: PlanModalPage
+    });
 
-    selectPlan(plan) {
-      console.log(plan);
-      this.planService.navigatePage('/plan');
-    }
+    modal.present();
+
+    const { data } = await modal.onDidDismiss();
+    console.log(data);
+    const newPlan = new Plan(data.name, data.type, data.date, data.place);
+    this.planService.setNewPlan(newPlan);
+    this.plans = this.planService.getPlans();
+  }
+
+  selectPlan(plan) {
+    console.log(plan);
+    this.planService.setActualPlan(plan);
+    this.planService.navigatePage('/plan');
+  }
 }
