@@ -1,0 +1,28 @@
+{
+    "MYPLANS": "My Plans",
+    "NEWPLAN": "Create a New Plan",
+    "WEDDING": "Wedding",
+    "COMMUNION": "Communion",
+    "BAPTISM": "Baptism",
+    "MEETING": "Meeting",
+    "WORK": "Work",
+    "OTHER": "Other",
+    "START": "Start",
+    "TOTAL": "Total",
+    "LANGUAGE": "Language",
+    "HOME": "Home",
+    "OPTIONS": "Options",
+    "SPANISH": "Spanish",
+    "ENGLISH": "English",
+    "NAME": "Name",
+    "NAMEWARNING": "The name of the plan is required",
+    "PLANNAME": "Name of the Plan",
+    "PLANWARNING":"The type of the plan is required",
+    "TYPE": "Type",
+    "TYPENAME": "Type of the plan",
+    "DATE": "Date (Optional)",
+    "PLACE": "Place (Optional)",
+    "PLACENAME": "Name of the place",
+    "CREATEPLAN": "Create plan"
+    
+}

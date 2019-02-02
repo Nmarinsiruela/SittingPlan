@@ -10,6 +10,7 @@ import { Storage } from '@ionic/storage';
 export class PlanService {
   private plans: Plan[];
   private actualPlan: Plan;
+  private language: string;
   constructor(private router: Router,
               private storage: Storage) { }
 
@@ -51,11 +52,18 @@ export class PlanService {
   async getStoredPlans() {
     return this.getFromStorageAsync('plans').then(plansArray => {
       const data = JSON.parse(plansArray);
-      console.log('StoredPlans', data);
       this.plans = data !== null ? data : [];
       return this.plans;
     });
   }
+
+  getStoredLanguage() {
+    return this.getFromStorageAsync('lang').then(language => {
+      this.language = language !== null ? language : 'es';
+      return this.language;
+    });
+  }
+
 
   async getFromStorageAsync(keyStorage) {
     return await this.storage.get(keyStorage);
@@ -67,4 +75,16 @@ export class PlanService {
 
     // WIP: Deleting a plan will delete its tables and related users.
   }
+
+
+    // OPTIONS METHODS
+
+    setLanguage(option: string) {
+      this.language = option;
+      this.storage.set('lang', this.language);
+    }
+
+    getLanguage() {
+      return this.language;
+    }
 }

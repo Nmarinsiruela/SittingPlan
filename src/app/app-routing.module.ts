@@ -16,7 +16,8 @@ const routes: Routes = [
     loadChildren: './plan/plan.module#PlanPageModule'
   },
   { path: 'plan-modal',
-    loadChildren: './plan-modal/plan-modal.module#PlanModalPageModule' }
+    loadChildren: './plan-modal/plan-modal.module#PlanModalPageModule' },
+  { path: 'options', loadChildren: './options/options.module#OptionsPageModule' }
 ];
 
 @NgModule({

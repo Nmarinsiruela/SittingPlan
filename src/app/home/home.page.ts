@@ -32,15 +32,20 @@ export class HomePage {
     modal.present();
 
     const { data } = await modal.onDidDismiss();
-    console.log(data);
-    const newPlan = new Plan(data.name, data.type, data.date, data.place);
-    this.planService.setNewPlan(newPlan);
-    this.plans = this.planService.getPlans();
+    if (data) {
+      const newPlan = new Plan(data.name, data.type, data.date, data.place);
+      this.planService.setNewPlan(newPlan);
+      this.plans = this.planService.getPlans();
+    }
   }
 
   selectPlan(plan) {
     console.log(plan);
     this.planService.setActualPlan(plan);
     this.planService.navigatePage('/plan');
+  }
+
+  returnClass(type: string) {
+    return  `../../assets/icon/${type.toLowerCase()}.svg`;
   }
 }

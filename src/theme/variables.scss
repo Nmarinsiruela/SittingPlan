@@ -149,6 +149,7 @@
 
 ion-toolbar {
   --background: #d39c2f;
+  border: 1px solid white;
 }
 
 ion-modal {
@@ -163,8 +164,9 @@ ion-button {
   padding: 0px;
   --background: #006e8c;
   color: white;
-  font-size: 24px;
+  font-size: 20px;
 }
+
 
 ion-title {
   color: white;
