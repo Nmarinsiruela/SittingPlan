@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { ModalController } from '@ionic/angular';
+import { ModalController, IonItemSliding } from '@ionic/angular';
 import { PlanModalPage } from '../plan-modal/plan-modal.page';
-import { PlanService } from '../services/plan.service';
 import { Plan } from '../services/Plan';
+import { PlanService } from '../services/plan.service';
 
 @Component({
   selector: 'app-home',
@@ -19,7 +19,6 @@ export class HomePage {
 
   ionViewWillEnter() {
     this.planService.getStoredPlans().then(sPlans => {
-
       this.plans = sPlans;
     });
   }
@@ -35,17 +34,20 @@ export class HomePage {
     if (data) {
       const newPlan = new Plan(data.name, data.type, data.date, data.place);
       this.planService.setNewPlan(newPlan);
-      this.plans = this.planService.getPlans();
     }
   }
 
   selectPlan(plan) {
-    console.log(plan);
     this.planService.setActualPlan(plan);
     this.planService.navigatePage('/plan');
   }
 
   returnClass(type: string) {
     return  `../../assets/icon/${type.toLowerCase()}.svg`;
+  }
+
+  deletePlan(slidingItem: IonItemSliding, id: number) {
+    slidingItem.close();
+    this.planService.deletePlan(id);
   }
 }

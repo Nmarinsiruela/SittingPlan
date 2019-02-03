@@ -1,9 +1,27 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>plan</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button>
+        <button style="background: transparent">
+          <ion-icon style="color:white; font-size: 30px" src="../../assets/icon/basicmenu.svg"></ion-icon>
+        </button>
+      </ion-menu-button>
+    </ion-buttons>
+    <ion-title text-center>
+      Sitting Plan v0.2
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-{{plan}}
+  <ion-text text-center style="font-size: 25px; font-weight: bold; display:block">{{plan.type | translate}}: {{ plan.name }}</ion-text>
+  <ion-text text-center style="font-size: 20px; display: block" *ngIf="plan.date">{{ plan.date }}</ion-text>
+  <ion-text text-center style="font-size: 20px; display: block" *ngIf="plan.place !== ''">{{ plan.place }}</ion-text>
+  <ion-button class="button button-block" style="margin: 15px" (click)="createTable()">{{ 'NEWTABLE' | translate }}</ion-button>
+
+  <ion-content text-center>
+    <ion-chip *ngFor="let table of tables" class="{{table.type}}Table">
+      <ion-label>{{table.name}}</ion-label>
+    </ion-chip>
+  </ion-content>
 </ion-content>

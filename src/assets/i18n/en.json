@@ -1,6 +1,7 @@
 {
     "MYPLANS": "My Plans",
     "NEWPLAN": "Create a New Plan",
+    "DELETEPLAN": "Delete",
     "WEDDING": "Wedding",
     "COMMUNION": "Communion",
     "BAPTISM": "Baptism",
@@ -23,6 +24,7 @@
     "DATE": "Date (Optional)",
     "PLACE": "Place (Optional)",
     "PLACENAME": "Name of the place",
-    "CREATEPLAN": "Create plan"
+    "CREATEPLAN": "Create plan",
+    "NEWTABLE": "Add a Table"
     
 }

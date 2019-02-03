@@ -1,6 +1,7 @@
 {
     "MYPLANS": "Mis Planes",
     "NEWPLAN": "Crear un nuevo Plan",
+    "DELETEPLAN": "Borrar",
     "WEDDING": "Boda",
     "COMMUNION": "Comunión",
     "BAPTISM": "Bautizo",
@@ -23,5 +24,6 @@
     "DATE": "Fecha (Opcional)",
     "PLACE": "Lugar (Opcional)",
     "PLACENAME": "Nombre del lugar",
-    "CREATEPLAN": "Crear plan"
+    "CREATEPLAN": "Crear plan",
+    "NEWTABLE": "Añadir una Mesa"
 }

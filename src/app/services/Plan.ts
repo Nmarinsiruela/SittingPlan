@@ -1,5 +1,5 @@
 export class Plan {
-    private id: number;
+    id: number;
     name: string;
     type: string;
     date: string;
@@ -13,11 +13,7 @@ export class Plan {
         this.place = place;
     }
 
-    setId(id: number) {
+    setId(id: number): void {
         this.id = id;
-    }
-
-    getId() {
-        return this.id;
     }
 }

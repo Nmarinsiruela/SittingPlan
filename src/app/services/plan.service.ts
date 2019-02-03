@@ -3,6 +3,7 @@ import { Plan } from './Plan';
 import { Router } from '@angular/router';
 
 import { Storage } from '@ionic/storage';
+import { Table } from './Table';
 
 @Injectable({
   providedIn: 'root'
@@ -43,8 +44,12 @@ export class PlanService {
   // STORAGE-RELATED METHODS
 
   setNewPlan(newPlan: Plan) {
-    newPlan.setId(this.plans.length);
-    console.log(newPlan);
+    if (this.plans.length === 0) {
+      newPlan.setId(0);
+    } else {
+      newPlan.setId(this.plans[this.plans.length - 1].id + 1);
+    }
+    console.log("After ID", newPlan);
     this.plans.push(newPlan);
     this.storage.set('plans', JSON.stringify(this.plans));
   }
@@ -71,6 +76,7 @@ export class PlanService {
 
   deletePlan(idPlan: number) {
     this.plans.splice(idPlan, 1);
+    console.table(this.plans);
     this.storage.set('plans', JSON.stringify(this.plans));
 
     // WIP: Deleting a plan will delete its tables and related users.
@@ -86,5 +92,13 @@ export class PlanService {
 
     getLanguage() {
       return this.language;
+    }
+
+    getDefaultTables() {
+      const type1 = new Table('Disco Inferno', 'circle', 5);
+      const type2 = new Table('Papa Frita', 'circle', 4);
+      const type3 = new Table('', 'square', 6);
+      const type4 = new Table('Disco Inferno', 'rectangle', 8);
+      return [type1, type2, type3, type4];
     }
 }
