@@ -86,8 +86,10 @@ export class PlanService {
     // OPTIONS METHODS
 
     setLanguage(option: string) {
-      this.language = option;
-      this.storage.set('lang', this.language);
+      if (this.language !== option) {
+        this.language = option;
+        this.storage.set('lang', this.language);
+      }
     }
 
     getLanguage() {

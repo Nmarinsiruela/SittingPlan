@@ -12,6 +12,14 @@
             </ion-item>
           </ion-menu-toggle>
         </ion-list>
+        <ion-item>
+          <ion-icon slot="start" src="../assets/icon/languages.svg"></ion-icon>
+          <ion-label>{{'LANGUAGE' | translate}}</ion-label>
+          <ion-select [(ngModel)]="langSelected" interface="popover" (ionChange)="selectLanguage(langSelected)">
+            <ion-select-option value="en">{{'ENGLISH' | translate}}</ion-select-option>
+            <ion-select-option value="es">{{'SPANISH' | translate}}</ion-select-option>
+          </ion-select>
+        </ion-item>
       </ion-content>
     </ion-menu>
     <ion-router-outlet main></ion-router-outlet>

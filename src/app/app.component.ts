@@ -17,13 +17,14 @@ export class AppComponent {
       url: '/home',
       src: '../assets/icon/md-home.svg'
     },
-    {
-      title: 'OPTIONS',
-      url: '/options',
-      src: '../assets/icon/md-list.svg'
-    }
+    // {
+    //   title: 'OPTIONS',
+    //   url: '/options',
+    //   src: '../assets/icon/md-list.svg'
+    // }
   ];
 
+  langSelected: string;
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
@@ -31,9 +32,10 @@ export class AppComponent {
     private service: PlanService
   ) {
     this.initializeApp();
-    this.translate.setDefaultLang('es');
     this.service.getStoredLanguage().then(language => {
-      this.translate.use(language);
+      this.translate.setDefaultLang(language);
+      // this.translate.use(language);
+      this.langSelected = language;
     });
   }
 
@@ -42,4 +44,10 @@ export class AppComponent {
       this.splashScreen.hide();
     });
   }
+
+  selectLanguage(language: string) {
+    this.service.setLanguage(language);
+    this.translate.use(language);
+  }
+
 }

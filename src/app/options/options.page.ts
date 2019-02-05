@@ -10,7 +10,6 @@ import {TranslateService} from '@ngx-translate/core';
 })
 export class OptionsPage {
   langSelected: string;
-  audioEnabled: string;
   constructor(private service: PlanService, private translate: TranslateService) {
   }
 
