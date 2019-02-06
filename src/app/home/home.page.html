@@ -18,7 +18,7 @@
 <ion-text style="font-size: 25px; font-weight: bold;">{{ 'MYPLANS' | translate }}</ion-text>
 <ion-button class="button button-block" style="margin: 10px" (click)="abrirModal()">{{ 'NEWPLAN' | translate }}</ion-button>
   <ion-list text-center padding >
-    <ion-item-sliding *ngFor="let plan of plans; let i = index" #slidingItem>
+    <ion-item-sliding *ngFor="let plan of plans" #slidingItem>
       <ion-item class="planClass" >
         <ion-icon style="color: #006e8c; font-size: 35px; margin-right: 5%;" src="../../assets/icon/{{plan.type.toLowerCase()}}.svg"></ion-icon>
       <ion-label>
@@ -31,7 +31,7 @@
       </button>
     </ion-item>
     <ion-item-options side="end">
-      <ion-item-option (click)="deletePlan(slidingItem, i)" style="background: transparent">
+      <ion-item-option (click)="deletePlan(slidingItem, plan)" style="background: transparent">
         <ion-icon style="color: #006e8c; font-size: 35px" src="../../assets/icon/deletePlan.svg"></ion-icon>
       </ion-item-option>
     </ion-item-options>

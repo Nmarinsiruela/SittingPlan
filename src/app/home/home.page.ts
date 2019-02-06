@@ -46,8 +46,8 @@ export class HomePage {
     return  `../../assets/icon/${type.toLowerCase()}.svg`;
   }
 
-  deletePlan(slidingItem: IonItemSliding, id: number) {
+  deletePlan(slidingItem: IonItemSliding, plan: Plan) {
     slidingItem.close();
-    this.planService.deletePlan(id);
+    this.planService.deletePlan(plan);
   }
 }

@@ -34,7 +34,6 @@ export class AppComponent {
     this.initializeApp();
     this.service.getStoredLanguage().then(language => {
       this.translate.setDefaultLang(language);
-      // this.translate.use(language);
       this.langSelected = language;
     });
   }

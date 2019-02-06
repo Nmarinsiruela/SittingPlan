@@ -1,0 +1,44 @@
+<ion-card class="disabledfeature">
+  <ion-card-content>
+    <form [formGroup]="planForm">
+      <ion-list>
+        <ion-item>
+          <ion-label position="stacked">{{'NUMBERTABLES' | translate}}</ion-label>
+          <ion-input formControlName="units" type="number" [ngClass]="{ 'is-invalid': submitted && f.units.errors }">
+          </ion-input>
+          <div *ngIf="!!submitted && !!f.units.errors" class="invalid-feedback">
+            <ion-text *ngIf="!!f.units.errors.required">{{'REQUIREDWARNING' | translate}}</ion-text>
+          </div>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">{{'SEATS' | translate}}</ion-label>
+          <ion-input formControlName="seats" type="number" [ngClass]="{ 'is-invalid': submitted && f.seats.errors }">
+          </ion-input>
+          <div *ngIf="!!submitted && !!f.seats.errors" class="invalid-feedback">
+            <ion-text *ngIf="!!f.seats.errors.required">{{'REQUIREDWARNING' | translate}}</ion-text>
+          </div>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">{{'TYPE' | translate}}</ion-label>
+            <ion-select formControlName="type" placeholder="{{'TYPENAME' | translate}}" type="text" interface="popover" [ngClass]="{ 'is-invalid': submitted && f.type.errors }">
+              <ion-select-option *ngFor="let typeOption of typeTable" [value]='typeOption.value'>{{typeOption.name | translate}}</ion-select-option>
+            </ion-select>
+          <div *ngIf="!!submitted && !!f.type.errors" class="invalid-feedback">
+            <ion-text *ngIf="!!f.type.errors.required">{{'REQUIREDWARNING' | translate}}</ion-text>
+          </div>
+        </ion-item>
+        <ion-item *ngIf="f.units.value === 1">
+          <ion-label position="stacked">{{'NAME' | translate}}</ion-label>
+          <ion-input formControlName="name" type="text" placeholder="{{'TABLENAME' | translate}}">
+          </ion-input>
+        </ion-item>
+
+      </ion-list>
+      <ion-row class="signin">
+        <ion-col>
+          <ion-button (click)="submitData()" color="primary" shape="full" expand="block">{{'CREATETABLE' | translate}}</ion-button>
+        </ion-col>
+      </ion-row>
+    </form>
+  </ion-card-content>
+</ion-card>

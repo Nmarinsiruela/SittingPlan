@@ -17,7 +17,8 @@ const routes: Routes = [
   },
   { path: 'plan-modal',
     loadChildren: './plan-modal/plan-modal.module#PlanModalPageModule' },
-  { path: 'options', loadChildren: './options/options.module#OptionsPageModule' }
+  { path: 'options', loadChildren: './options/options.module#OptionsPageModule' },  { path: 'table-modal', loadChildren: './table-modal/table-modal.module#TableModalPageModule' }
+
 ];
 
 @NgModule({

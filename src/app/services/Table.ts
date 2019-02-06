@@ -1,11 +1,11 @@
 export class Table {
-    private id: number;
-    private planId: number;
+    id: number;
+    planId: number;
     name: string;
     type: string;
     seats: number;
 
-    constructor(name: string, type: string, seats: number) {
+    constructor(name: string = '', type: string = '', seats: number = -1) {
         this.id = -1;
         this.planId = -1;
         this.name = name;
@@ -17,15 +17,7 @@ export class Table {
         this.id = id;
     }
 
-    getId() {
-        return this.id;
-    }
-
     setPlanId(id: number) {
         this.planId = id;
-    }
-
-    getPlanId() {
-        return this.planId;
     }
 }

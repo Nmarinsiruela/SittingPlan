@@ -15,13 +15,22 @@
 
 <ion-content padding>
   <ion-text text-center style="font-size: 25px; font-weight: bold; display:block">{{plan.type | translate}}: {{ plan.name }}</ion-text>
-  <ion-text text-center style="font-size: 20px; display: block" *ngIf="plan.date">{{ plan.date }}</ion-text>
-  <ion-text text-center style="font-size: 20px; display: block" *ngIf="plan.place !== ''">{{ plan.place }}</ion-text>
+  <ion-text text-center style="font-size: 20px; display: block">{{ plan.date }}</ion-text>
+  <ion-text text-center style="font-size: 20px; display: block">{{ plan.place }}</ion-text>
   <ion-button class="button button-block" style="margin: 15px" (click)="createTable()">{{ 'NEWTABLE' | translate }}</ion-button>
 
-  <ion-content text-center>
-    <ion-chip *ngFor="let table of tables" class="{{table.type}}Table">
-      <ion-label>{{table.name}}</ion-label>
-    </ion-chip>
-  </ion-content>
+  <ion-card padding>
+      <ion-chip *ngFor="let table of tables; let i = index" class="{{table.type.toLowerCase()}}Table">
+      <ion-label>{{table.name !== '' ? table.name : i + 1}}</ion-label>
+    </ion-chip> 
+  <!-- <ion-grid>
+    <ion-row>
+    <ion-col>
+    <ion-item *ngFor="let table of tables; let i = index" class="{{table.type.toLowerCase()}}Table">
+      <ion-label>{{table.name !== '' ? table.name : i + 1}}</ion-label>
+    </ion-item>
+    </ion-col>
+    </ion-row>
+  </ion-grid> -->
+  </ion-card>
 </ion-content>

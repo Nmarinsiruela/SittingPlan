@@ -16,15 +16,21 @@
     "SPANISH": "Spanish",
     "ENGLISH": "English",
     "NAME": "Name",
-    "NAMEWARNING": "The name of the plan is required",
     "PLANNAME": "Name of the Plan",
-    "PLANWARNING":"The type of the plan is required",
     "TYPE": "Type",
     "TYPENAME": "Type of the plan",
     "DATE": "Date (Optional)",
     "PLACE": "Place (Optional)",
     "PLACENAME": "Name of the place",
     "CREATEPLAN": "Create plan",
-    "NEWTABLE": "Add a Table"
+    "NEWTABLE": "Add a Table",
+    "CIRCLE": "Circle",
+    "SQUARE": "Square",
+    "RECTANGLE": "Rectangle",
+    "NUMBERTABLES": "Number of Tables",
+    "REQUIREDWARNING": "This value is required",
+    "SEATS": "Seats per table",
+    "TABLENAME": "Name of the Table",
+    "CREATETABLE": "Create"
     
 }

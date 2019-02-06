@@ -14,6 +14,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { TableModalPageModule } from './table-modal/table-modal.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -30,6 +31,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
     }),
     ReactiveFormsModule,
     PlanModalPageModule,
+    TableModalPageModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

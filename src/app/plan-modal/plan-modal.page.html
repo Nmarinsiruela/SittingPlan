@@ -7,7 +7,7 @@
           <ion-input formControlName="namePlan" type="text" placeholder="{{'PLANNAME' | translate}} " [ngClass]="{ 'is-invalid': submitted && f.namePlan.errors }">
           </ion-input>
           <div *ngIf="!!submitted && !!f.namePlan.errors" class="invalid-feedback">
-            <ion-text *ngIf="!!f.namePlan.errors.required">{{'NAMEWARNING' | translate}}</ion-text>
+            <ion-text *ngIf="!!f.namePlan.errors.required">{{'REQUIREDWARNING' | translate}}</ion-text>
           </div>
         </ion-item>
         <ion-item>
@@ -16,7 +16,7 @@
               <ion-select-option *ngFor="let typeOption of typeOptions" [value]='typeOption.value'>{{typeOption.name | translate}}</ion-select-option>
             </ion-select>
           <div *ngIf="!!submitted && !!f.typePlan.errors" class="invalid-feedback">
-            <ion-text *ngIf="!!f.typePlan.errors.required">{{'PLANWARNING' | translate}}</ion-text>
+            <ion-text *ngIf="!!f.typePlan.errors.required">{{'REQUIREDWARNING' | translate}}</ion-text>
           </div>
         </ion-item>
         <ion-item>

@@ -16,14 +16,20 @@
     "SPANISH": "Español",
     "ENGLISH": "Inglés",
     "NAME": "Nombre",
-    "NAMEWARNING": "El nombre de plan es obligatorio",
     "PLANNAME": "Nombre del plan",
-    "PLANWARNING":"El tipo de plan es obligatorio",
     "TYPE": "Tipo",
     "TYPENAME": "Tipo del plan",
     "DATE": "Fecha (Opcional)",
     "PLACE": "Lugar (Opcional)",
     "PLACENAME": "Nombre del lugar",
     "CREATEPLAN": "Crear plan",
-    "NEWTABLE": "Añadir una Mesa"
+    "NEWTABLE": "Añadir una Mesa",
+    "CIRCLE": "Circular",
+    "SQUARE": "Cuadrada",
+    "RECTANGLE": "Rectangular",
+    "NUMBERTABLES": "Número de mesas",
+    "REQUIREDWARNING": "Este valor es obligatorio",
+    "SEATS": "Asientos por mesa",
+    "TABLENAME": "Nombre de la mesa",
+    "CREATETABLE": "Crear"
 }
