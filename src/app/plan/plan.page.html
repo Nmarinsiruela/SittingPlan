@@ -14,23 +14,24 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-text text-center style="font-size: 25px; font-weight: bold; display:block">{{plan.type | translate}}: {{ plan.name }}</ion-text>
+  <ion-text text-center style="font-size: 25px; font-weight: bold; display:block">{{plan.type | translate}}: {{
+    plan.name }}</ion-text>
   <ion-text text-center style="font-size: 20px; display: block">{{ plan.date }}</ion-text>
   <ion-text text-center style="font-size: 20px; display: block">{{ plan.place }}</ion-text>
   <ion-button class="button button-block" style="margin: 15px" (click)="createTable()">{{ 'NEWTABLE' | translate }}</ion-button>
 
-  <ion-card padding>
-      <ion-chip *ngFor="let table of tables; let i = index" class="{{table.type.toLowerCase()}}Table">
+  <ion-card padding *ngIf="tables.length > 0">
+    <!-- <ion-chip *ngFor="let table of tables; let i = index" class="{{table.type.toLowerCase()}}Table">
       <ion-label>{{table.name !== '' ? table.name : i + 1}}</ion-label>
-    </ion-chip> 
-  <!-- <ion-grid>
-    <ion-row>
-    <ion-col>
-    <ion-item *ngFor="let table of tables; let i = index" class="{{table.type.toLowerCase()}}Table">
-      <ion-label>{{table.name !== '' ? table.name : i + 1}}</ion-label>
-    </ion-item>
-    </ion-col>
-    </ion-row>
-  </ion-grid> -->
+    </ion-chip>  -->
+    <ion-grid>
+      <ion-row>
+        <ion-col style="text-align: center">
+          <ion-chip *ngFor="let table of tables; let i = index" class="{{table.type.toLowerCase()}}Table" (click)="selectTable(table)">
+            <ion-label>{{table.name !== '' ? table.name : i + 1}}</ion-label>
+          </ion-chip>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
   </ion-card>
 </ion-content>

@@ -11,7 +11,7 @@ import { PlanService } from '../services/plan.service';
 export class TableModalPage implements OnInit {
   submitted = false;
   public typeTable: Object;
-  public planForm: FormGroup;
+  public form: FormGroup;
   constructor(private modalController: ModalController,
               public formBuilder: FormBuilder,
               private planService: PlanService) {
@@ -19,7 +19,7 @@ export class TableModalPage implements OnInit {
 
   ngOnInit() {
     this.typeTable = this.returnTypeTables();
-    this.planForm = this.formBuilder.group({
+    this.form = this.formBuilder.group({
       seats: [1, Validators.required],
       name: [''],
       units: [1, Validators.required],
@@ -35,12 +35,12 @@ export class TableModalPage implements OnInit {
   }
 
   get f() {
-    return this.planForm.controls;
+    return this.form.controls;
   }
 
   submitData() {
     this.submitted = true;
-    if (this.planForm.invalid) {
+    if (this.form.invalid) {
       return;
     }
     this.modalController.dismiss({

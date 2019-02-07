@@ -20,12 +20,11 @@ export class PlanModalPage implements OnInit {
   }
 
   ngOnInit() {
-    this.typeOptions = this.planService.returnTypePlans();
+    this.typeOptions = this.returnTypePlans();
     this.min =  moment().format('YYYY-MM-DD');
-    console.log(this.typeOptions);
     this.planForm = this.formBuilder.group({
       namePlan: ['', Validators.required],
-      typePlan: ['', Validators.required],
+      typePlan: ['OTHER', Validators.required],
       datePlan: [moment().format('YYYY-MM-DD'), Validators.required],
       placePlan: ['']
   });
@@ -49,6 +48,16 @@ export class PlanModalPage implements OnInit {
       'date': this.f.datePlan.value,
       'place': this.f.placePlan.value
     });
+  }
+
+  returnTypePlans() {
+    const type1 = new Object({'value': 'WEDDING', 'name': 'WEDDING'});
+    const type2 = new Object({'value': 'COMMUNION', 'name': 'COMMUNION'});
+    const type3 = new Object({'value': 'BAPTISM', 'name': 'BAPTISM'});
+    const type4 = new Object({'value': 'MEETING', 'name': 'MEETING'});
+    const type5 = new Object({'value': 'WORK', 'name': 'WORK'});
+    const type6 = new Object({'value': 'OTHER', 'name': 'OTHER'});
+    return [type1, type2, type3, type4, type5, type6];
   }
 
 }

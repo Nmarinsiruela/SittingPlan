@@ -12,6 +12,7 @@ export class PlanService {
   private plans: Plan[];
   private tables: Table[];
   private actualPlan: Plan;
+  private actualTable: Table;
   private language: string;
   constructor(private router: Router,
               private storage: Storage) { }
@@ -32,22 +33,12 @@ export class PlanService {
     return this.actualPlan;
   }
 
-  getDefaultPlan() {
-    return this.getFromStorageAsync('plans').then(plansArray => {
-      const data = JSON.parse(plansArray);
-      this.plans = data !== null ? data : [];
-      return this.plans[0];
-    });
+  setActualTable(aTable: Table) {
+    this.actualTable = aTable;
   }
 
-  returnTypePlans() {
-    const type1 = new Object({'value': 'WEDDING', 'name': 'WEDDING'});
-    const type2 = new Object({'value': 'COMMUNION', 'name': 'COMMUNION'});
-    const type3 = new Object({'value': 'BAPTISM', 'name': 'BAPTISM'});
-    const type4 = new Object({'value': 'MEETING', 'name': 'MEETING'});
-    const type5 = new Object({'value': 'WORK', 'name': 'WORK'});
-    const type6 = new Object({'value': 'OTHER', 'name': 'OTHER'});
-    return [type1, type2, type3, type4, type5, type6];
+  getActualTable() {
+    return this.actualTable;
   }
 
   navigatePage(destiny: string) {
@@ -68,7 +59,7 @@ export class PlanService {
 
   setNewTables(newTables: Table[]) {
     for (let x = 0; x < newTables.length; x++) {
-      newTables[x].setId(this.tables.length !== 0 ? this.tables[this.tables.length - 1].id + 1: 0);
+      newTables[x].setId(this.tables.length !== 0 ? this.tables[this.tables.length - 1].id + 1 : 0);
       newTables[x].setPlanId(this.actualPlan.id);
       this.tables.push(newTables[x]);
     }
@@ -110,7 +101,12 @@ export class PlanService {
     this.storage.remove(`tables${idPlan}`);
 
     // WIP: Deleting a plan will delete its tables and related users.
+  }
 
+  deleteTable(table: Table) {
+    const idTable = this.tables.indexOf(table);
+    this.tables.splice(idTable, 1);
+    this.storage.set(`tables${table.planId}`, JSON.stringify(this.tables));
   }
 
   setLanguage(option: string) {
@@ -124,11 +120,4 @@ export class PlanService {
     return this.language;
   }
 
-  getDefaultTables() {
-    const type1 = new Table('Disco Inferno', 'circle', 5);
-    const type2 = new Table('Papa Frita', 'circle', 4);
-    const type3 = new Table('', 'square', 6);
-    const type4 = new Table('Disco Inferno', 'rectangle', 8);
-    return [type1, type2, type3, type4];
-  }
 }

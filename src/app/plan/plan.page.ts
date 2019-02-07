@@ -10,11 +10,12 @@ import { ModalController } from '@ionic/angular';
   templateUrl: './plan.page.html',
   styleUrls: ['./plan.page.scss'],
 })
-export class PlanPage{
+export class PlanPage {
   plan: Plan;
   tables: Table[];
   constructor(private modalController: ModalController, private planService: PlanService) {
     this.plan = new Plan();
+    this.tables = [];
    }
 
   ionViewWillEnter() {
@@ -39,8 +40,8 @@ export class PlanPage{
         const newTable = new Table(data.name, data.type, data.seats);
         result.push(newTable);
       } else {
-        for (let x = 0; x < data.units; x++) {
-          const newTable = new Table('', data.type, data.seats);
+        for (let x = 1; x <= data.units; x++) {
+          const newTable = new Table('' + (this.tables.length + x), data.type, data.seats);
           result.push(newTable);
         }
       }
@@ -48,5 +49,11 @@ export class PlanPage{
     }
     // TODO: Si creas multiples mesas, indicar que puedes editar su nombre en cada una.
   }
+
+  selectTable(table) {
+    this.planService.setActualTable(table);
+    this.planService.navigatePage('/table');
+  }
+
 
 }

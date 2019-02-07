@@ -4,6 +4,7 @@ export class Table {
     name: string;
     type: string;
     seats: number;
+    people: string[];
 
     constructor(name: string = '', type: string = '', seats: number = -1) {
         this.id = -1;
@@ -19,5 +20,9 @@ export class Table {
 
     setPlanId(id: number) {
         this.planId = id;
+    }
+
+    setPeople(people: string[] = []) {
+        this.people = people;
     }
 }

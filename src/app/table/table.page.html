@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button>
+        <button style="background: transparent">
+          <ion-icon style="color:white; font-size: 30px" src="../../assets/icon/basicmenu.svg"></ion-icon>
+        </button>
+      </ion-menu-button>
+    </ion-buttons>
+    <ion-title text-center>
+      Sitting Plan v0.2
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <form [formGroup]="form">
+    <ion-list margin-bottom>
+      <ion-item>
+        <ion-label position="stacked">{{'TABLENAME' | translate}}</ion-label>
+        <ion-input formControlName="name" type="text">
+        </ion-input>
+      </ion-item>
+
+      <ion-label position="stacked">{{'SEATS' | translate}}</ion-label>
+      <div formArrayName="people" margin-bottom>
+        <section [formGroupName]="i" *ngFor="let person of form.controls.people.controls; let i = index">
+          <ion-item-group>
+            <ion-item>
+              <ion-label floating>Seat {{ i + 1 }}:</ion-label>
+              <ion-input type="text" maxlength="50" formControlName="name"></ion-input>
+            </ion-item>
+          </ion-item-group>
+        </section>
+      </div>
+    </ion-list>
+
+
+    <!-- Only allow form to be submitted IF validation criteria for
+          input fields has been successfully passed -->
+    <ion-row class="signin">
+      <ion-col>
+        <ion-button (click)="submitData(form.value)" color="primary" shape="full" expand="block" [disabled]="!form.valid">{{'UPDATETABLE' | translate}}</ion-button>
+      </ion-col>
+    </ion-row>
+  </form>
+
+</ion-content>
