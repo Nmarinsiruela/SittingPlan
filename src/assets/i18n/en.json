@@ -18,19 +18,20 @@
     "NAME": "Name",
     "PLANNAME": "Name of the Plan",
     "TYPE": "Type",
-    "TYPENAME": "Type of the plan",
+    "TYPENAME": "Type of the Plan",
     "DATE": "Date (Optional)",
     "PLACE": "Place (Optional)",
     "PLACENAME": "Name of the place",
-    "CREATEPLAN": "Create plan",
+    "CREATEPLAN": "Create Plan",
     "NEWTABLE": "Add a Table",
     "CIRCLE": "Circle",
     "SQUARE": "Square",
     "RECTANGLE": "Rectangle",
     "NUMBERTABLES": "Number of Tables",
     "REQUIREDWARNING": "This value is required",
-    "SEATS": "Seats per table",
+    "SEATS": "Seats per Table",
     "TABLENAME": "Name of the Table",
-    "CREATETABLE": "Create"
+    "CREATETABLE": "Create",
+    "UPDATETABLE": "Update Table"
     
 }

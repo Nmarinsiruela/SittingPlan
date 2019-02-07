@@ -22,8 +22,8 @@ export class TablePage implements OnInit {
   ngOnInit() {
     this.table = this.planService.getActualTable();
     this.form = this.formBuilder.group({
-      name: [this.table.name],
-      people: this.formBuilder.array([this.addSeat()])
+      nameTable: [this.table.name],
+      people: this.formBuilder.array([])
     });
     this.returnSeatsArray();
   }
@@ -34,22 +34,28 @@ export class TablePage implements OnInit {
 
   returnSeatsArray() {
     const control = <FormArray>this.form.controls.people;
-    for (let x = 1; x < this.table.seats; x++) {
-      control.push(this.addSeat());
+    for (let x = 0; x < this.table.seats; x++) {
+      control.push(this.addSeat(this.table.people[x]));
     }
   }
 
-  addSeat(): FormGroup {
+  addSeat(person: string = ''): FormGroup {
     return this.formBuilder.group({
-      name: ['', Validators.required]
+      name: [person, Validators.required]
     });
   }
 
-  submitData(val: any) {
-    console.dir(val);
-    this.submitted = true;
+  submitData(formvalues: any) {
     if (this.form.invalid) {
       return;
     }
+    this.table.name = formvalues.nameTable;
+    const people = [];
+    formvalues.people.forEach(element => {
+      people.push(element.name);
+    });
+    this.table.people = people;
+    this.planService.setNewPeople(this.table);
+    this.planService.navigatePage('/plan');
   }
 }

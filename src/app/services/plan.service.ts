@@ -67,6 +67,12 @@ export class PlanService {
     this.storage.set(`tables${this.actualPlan.id}`, JSON.stringify(this.tables));
   }
 
+  setNewPeople(table: Table) {
+    const idTable = this.tables.indexOf(table);
+    this.tables[idTable] = table;
+    this.storage.set(`tables${this.actualPlan.id}`, JSON.stringify(this.tables));
+  }
+
   async getStoredPlans() {
     return this.getFromStorageAsync('plans').then(plansArray => {
       const data = JSON.parse(plansArray);

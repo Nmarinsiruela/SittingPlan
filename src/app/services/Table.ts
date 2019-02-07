@@ -12,6 +12,7 @@ export class Table {
         this.name = name;
         this.type = type;
         this.seats = seats;
+        this.people = [];
     }
 
     setId(id: number) {
