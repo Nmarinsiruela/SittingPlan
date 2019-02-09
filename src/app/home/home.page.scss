@@ -1,7 +1,4 @@
 
-.planHeader {
-  padding: 10px 0px 10px 5px;
-}
 .planClass {
   margin: 3px;
   border: 2px solid #d39c2f;
@@ -11,4 +8,9 @@ ion-col {
   background: white;
   margin: 1px;
   // padding: 10px;
+}
+
+.noPadding {
+  --padding-start: 0;
+  --padding-end: 0;
 }

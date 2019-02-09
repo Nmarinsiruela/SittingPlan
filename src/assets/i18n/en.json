@@ -30,6 +30,7 @@
     "NUMBERTABLES": "Number of Tables",
     "REQUIREDWARNING": "This value is required",
     "SEATS": "Seats per Table",
+    "SEAT": "Seat",
     "TABLENAME": "Name of the Table",
     "CREATETABLE": "Create",
     "UPDATETABLE": "Update Table"

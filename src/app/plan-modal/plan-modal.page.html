@@ -4,7 +4,7 @@
       <ion-list>
         <ion-item>
           <ion-label position="stacked">{{'NAME' | translate}}</ion-label>
-          <ion-input formControlName="namePlan" type="text" placeholder="{{'PLANNAME' | translate}} " [ngClass]="{ 'is-invalid': submitted && f.namePlan.errors }">
+          <ion-input formControlName="namePlan" type="text" placeholder="{{'PLANNAME' | translate}}" autocapitalize="on" [ngClass]="{ 'is-invalid': submitted && f.namePlan.errors }">
           </ion-input>
           <div *ngIf="!!submitted && !!f.namePlan.errors" class="invalid-feedback">
             <ion-text *ngIf="!!f.namePlan.errors.required">{{'REQUIREDWARNING' | translate}}</ion-text>
@@ -21,11 +21,11 @@
         </ion-item>
         <ion-item>
           <ion-label position="stacked">{{'DATE' | translate}}</ion-label>
-          <ion-input formControlName="datePlan" type="date" [min]="min" max="2030-12-31"></ion-input>
+          <ion-input formControlName="datePlan" type="date" [min]="min" max="2030-12-31" autocapitalize="on"></ion-input>
         </ion-item>
         <ion-item>
           <ion-label position="stacked">{{'PLACE' | translate}}</ion-label>
-          <ion-input formControlName="placePlan" type="text" placeholder="{{'PLACENAME' | translate}}">
+          <ion-input formControlName="placePlan" type="text" placeholder="{{'PLACENAME' | translate}}" autocapitalize="on">
           </ion-input>
         </ion-item>
 

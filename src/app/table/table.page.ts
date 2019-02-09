@@ -32,6 +32,8 @@ export class TablePage implements OnInit {
     return this.form.controls;
   }
 
+  get formData() { return <FormArray>this.form.get('people'); }
+
   returnSeatsArray() {
     const control = <FormArray>this.form.controls.people;
     for (let x = 0; x < this.table.seats; x++) {

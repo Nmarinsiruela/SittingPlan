@@ -7,6 +7,9 @@
         </button>
       </ion-menu-button>
     </ion-buttons>
+    <!-- <button style="background: transparent">
+      <ion-icon style="color:white; font-size: 30px" src="../../assets/icon/arrowLeft.svg" (click)="returnHome()"></ion-icon>
+    </button> -->
     <ion-title text-center>
       Sitting Plan v0.1
     </ion-title>
@@ -14,21 +17,20 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-text text-center style="font-size: 25px; font-weight: bold; display:block">{{plan.type | translate}}: {{
-    plan.name }}</ion-text>
-  <ion-text text-center style="font-size: 20px; display: block">{{ plan.date }}</ion-text>
+  <ion-row style="justify-content: center;">
+    <ion-text style="color: #006e8c; font-size: 25px; font-weight: bold; margin-right: 5px;">{{ plan.type | translate }}: </ion-text>
+    <ion-text style="color: #006e8c; font-size: 25px;"> {{ plan.name }}</ion-text>
+  </ion-row>
+  <ion-text text-center style="font-size: 20px; display: block">{{ plan.date.slice(0,10).split('-').reverse().join('/') }}</ion-text>
   <ion-text text-center style="font-size: 20px; display: block">{{ plan.place }}</ion-text>
   <ion-button class="button button-block" style="margin: 15px" (click)="createTable()">{{ 'NEWTABLE' | translate }}</ion-button>
-
   <ion-card padding *ngIf="tables.length > 0">
-    <!-- <ion-chip *ngFor="let table of tables; let i = index" class="{{table.type.toLowerCase()}}Table">
-      <ion-label>{{table.name !== '' ? table.name : i + 1}}</ion-label>
-    </ion-chip>  -->
     <ion-grid>
       <ion-row>
         <ion-col style="text-align: center">
           <ion-chip *ngFor="let table of tables; let i = index" class="{{table.type.toLowerCase()}}Table" (click)="selectTable(table)">
-            <ion-label>{{table.name !== '' ? table.name : i + 1}}</ion-label>
+            <ion-label style="font-size: xx-large;" *ngIf="table.name === ''">{{i + 1}}</ion-label>
+            <ion-label style="font-size: large; text-decoration: underline" *ngIf="table.name !== ''">{{table.name}}</ion-label>
           </ion-chip>
         </ion-col>
       </ion-row>

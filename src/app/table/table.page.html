@@ -6,7 +6,6 @@
           <ion-icon style="color:white; font-size: 30px" src="../../assets/icon/basicmenu.svg"></ion-icon>
         </button>
       </ion-menu-button>
-      <!-- <ion-back-button defaultHref="plan" style="color:white; font-size: 30px"></ion-back-button> -->
     </ion-buttons>
     <ion-title text-center>
       Sitting Plan v0.1
@@ -19,19 +18,19 @@
     <ion-list margin-bottom>
       <ion-item>
         <ion-label floating style="font-weight: bold">{{'TABLENAME' | translate}}: </ion-label>
-        <ion-input formControlName="nameTable" type="text"></ion-input>
+        <ion-input formControlName="nameTable" autocapitalize="on" type="text"></ion-input>
       </ion-item>
 
-      <ion-item>
+      <ion-row justify-content-center align-items-center style="margin-top: 10px;">
         <ion-text position="stacked">{{'SEATS' | translate}}</ion-text>
-      </ion-item>
+      </ion-row>
 
       <div formArrayName="people">
-        <section [formGroupName]="i" *ngFor="let person of form.controls.people.controls; let i = index" margin-bottom>
+        <section [formGroupName]="i" *ngFor="let person of formData.controls; let i = index" margin-bottom>
           <ion-item-group>
             <ion-item>
-              <ion-label floating style="font-weight: bold">Seat {{ i + 1 }}:</ion-label>
-              <ion-input type="text" maxlength="50" formControlName="name"></ion-input>
+              <ion-label floating style="font-weight: bold">{{'SEAT' | translate}} {{ i + 1 }}:</ion-label>
+              <ion-input type="text" maxlength="50" formControlName="name" autocapitalize="on"></ion-input>
             </ion-item>
           </ion-item-group>
         </section>

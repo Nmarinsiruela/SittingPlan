@@ -55,5 +55,4 @@ export class PlanPage {
     this.planService.navigatePage('/table');
   }
 
-
 }

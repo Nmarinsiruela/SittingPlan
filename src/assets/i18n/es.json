@@ -30,6 +30,7 @@
     "NUMBERTABLES": "Número de Mesas",
     "REQUIREDWARNING": "Este valor es obligatorio",
     "SEATS": "Asientos por Mesa",
+    "SEAT": "Asiento",
     "TABLENAME": "Nombre de la Mesa",
     "CREATETABLE": "Crear",
     "UPDATETABLE": "Actualizar Mesa"

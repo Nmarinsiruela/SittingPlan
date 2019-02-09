@@ -14,16 +14,19 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding text-center>
+<ion-content padding text-center class="noPadding">
 <ion-text style="font-size: 25px; font-weight: bold;">{{ 'MYPLANS' | translate }}</ion-text>
-<ion-button class="button button-block" style="margin: 10px" (click)="abrirModal()">{{ 'NEWPLAN' | translate }}</ion-button>
-  <ion-list text-center padding >
+<ion-button class="button button-block" style="margin: 20px" (click)="abrirModal()">{{ 'NEWPLAN' | translate }}</ion-button>
+  <ion-list text-center>
     <ion-item-sliding *ngFor="let plan of plans" #slidingItem>
       <ion-item class="planClass" >
         <ion-icon style="color: #006e8c; font-size: 35px; margin-right: 5%;" src="../../assets/icon/{{plan.type.toLowerCase()}}.svg"></ion-icon>
       <ion-label>
-        <p>{{plan.type | translate}}: {{plan.name}}</p>
-        <p>{{plan.date}}</p>
+        <ion-row>
+            <ion-text style=" font-weight: bold; margin-right: 5px;">{{ plan.type | translate}}: </ion-text>
+            <ion-text> {{ plan.name }}</ion-text>
+        </ion-row>
+        <p *ngIf="plan.date !== ''">{{plan.date.slice(0,10).split('-').reverse().join('/')}}</p>
         <p *ngIf="plan.place !== ''">{{plan.place}}</p>
       </ion-label>
       <button style="background: transparent" (click)="selectPlan(plan)">
