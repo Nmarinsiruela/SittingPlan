@@ -33,5 +33,7 @@
     "SEAT": "Asiento",
     "TABLENAME": "Nombre de la Mesa",
     "CREATETABLE": "Crear",
-    "UPDATETABLE": "Actualizar Mesa"
+    "UPDATETABLE": "Actualizar Mesa",
+    "NOTABLES": "No hay Mesas encontradas",
+    "SEARCHTABLE": "Busca una Mesa"
 }

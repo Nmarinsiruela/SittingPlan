@@ -18,22 +18,29 @@
 
 <ion-content padding>
   <ion-row style="justify-content: center;">
-    <ion-text style="color: #006e8c; font-size: 25px; font-weight: bold; margin-right: 5px;">{{ plan.type | translate }}: </ion-text>
+    <ion-text style="color: #006e8c; font-size: 25px; font-weight: bold; margin-right: 5px;">{{ plan.type | translate
+      }}: </ion-text>
     <ion-text style="color: #006e8c; font-size: 25px;"> {{ plan.name }}</ion-text>
   </ion-row>
-  <ion-text text-center style="font-size: 20px; display: block">{{ plan.date.slice(0,10).split('-').reverse().join('/') }}</ion-text>
+  <ion-text text-center style="font-size: 20px; display: block">{{ plan.date.slice(0,10).split('-').reverse().join('/')
+    }}</ion-text>
   <ion-text text-center style="font-size: 20px; display: block">{{ plan.place }}</ion-text>
   <ion-button class="button button-block" style="margin: 15px" (click)="createTable()">{{ 'NEWTABLE' | translate }}</ion-button>
-  <ion-card padding *ngIf="tables.length > 0">
+  <ion-row style="justify-content: center">
+      <ion-searchbar [formControl]="searchControl" (ionInput)="onSearchInput()" placeholder="{{ 'SEARCHTABLE' | translate }}"></ion-searchbar>
+      <ion-spinner *ngIf="searching"></ion-spinner>
+  </ion-row>
+  <ion-card padding *ngIf="searchTables.length > 0 && searching === false">
     <ion-grid>
       <ion-row>
         <ion-col style="text-align: center">
-          <ion-chip *ngFor="let table of tables; let i = index" class="{{table.type.toLowerCase()}}Table" (click)="selectTable(table)">
-            <ion-label style="font-size: xx-large;" *ngIf="table.name === ''">{{i + 1}}</ion-label>
-            <ion-label style="font-size: large; text-decoration: underline" *ngIf="table.name !== ''">{{table.name}}</ion-label>
+          <ion-chip *ngFor="let table of searchTables; let i = index" class="{{table.type.toLowerCase()}}Table" (click)="selectTable(table)">
+            <ion-label class="title{{hasTitle(table.name)}}">{{table.name}}</ion-label>
           </ion-chip>
         </ion-col>
       </ion-row>
     </ion-grid>
   </ion-card>
+  <ion-text text-center style="font-size: 20px; display: block; margin-top: 30px" *ngIf="searchTables.length === 0 || tables.length === 0">{{ 'NOTABLES' | translate
+    }}</ion-text>
 </ion-content>

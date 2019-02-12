@@ -13,8 +13,7 @@ export class TableModalPage implements OnInit {
   public typeTable: Object;
   public form: FormGroup;
   constructor(private modalController: ModalController,
-              public formBuilder: FormBuilder,
-              private planService: PlanService) {
+              public formBuilder: FormBuilder) {
   }
 
   ngOnInit() {

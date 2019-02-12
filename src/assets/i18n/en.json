@@ -33,6 +33,7 @@
     "SEAT": "Seat",
     "TABLENAME": "Name of the Table",
     "CREATETABLE": "Create",
-    "UPDATETABLE": "Update Table"
-    
+    "UPDATETABLE": "Update Table",
+    "NOTABLES": "No Tables found",
+    "SEARCHTABLE": "Search a Table"
 }
