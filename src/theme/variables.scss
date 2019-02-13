@@ -152,10 +152,13 @@ ion-toolbar {
   border: 1px solid white;
 }
 
+.home-plan-modal .modal-wrapper {
+  min-height: 400px;
+  height: auto;
+}
+
 ion-modal {
   padding: 30px;
-  background: rgba(0,0,0,0.5);
-  color: #929292;
 }
 
 ion-button {

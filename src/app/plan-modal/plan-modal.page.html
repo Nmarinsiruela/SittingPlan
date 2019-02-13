@@ -1,40 +1,39 @@
-<ion-card class="disabledfeature">
-  <ion-card-content>
-    <form [formGroup]="planForm">
-      <ion-list>
-        <ion-item>
-          <ion-label position="stacked">{{'NAME' | translate}}</ion-label>
-          <ion-input formControlName="namePlan" type="text" placeholder="{{'PLANNAME' | translate}}" autocapitalize="on" [ngClass]="{ 'is-invalid': submitted && f.namePlan.errors }">
-          </ion-input>
-          <div *ngIf="!!submitted && !!f.namePlan.errors" class="invalid-feedback">
-            <ion-text *ngIf="!!f.namePlan.errors.required">{{'REQUIREDWARNING' | translate}}</ion-text>
-          </div>
-        </ion-item>
-        <ion-item>
-          <ion-label position="stacked">{{'TYPE' | translate}}</ion-label>
-            <ion-select formControlName="typePlan" placeholder="{{'TYPENAME' | translate}}" type="text" interface="popover" [ngClass]="{ 'is-invalid': submitted && f.typePlan.errors }">
-              <ion-select-option *ngFor="let typeOption of typeOptions" [value]='typeOption.value'>{{typeOption.name | translate}}</ion-select-option>
-            </ion-select>
-          <div *ngIf="!!submitted && !!f.typePlan.errors" class="invalid-feedback">
-            <ion-text *ngIf="!!f.typePlan.errors.required">{{'REQUIREDWARNING' | translate}}</ion-text>
-          </div>
-        </ion-item>
-        <ion-item>
-          <ion-label position="stacked">{{'DATE' | translate}}</ion-label>
-          <ion-input formControlName="datePlan" type="date" [min]="min" max="2030-12-31" autocapitalize="on"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label position="stacked">{{'PLACE' | translate}}</ion-label>
-          <ion-input formControlName="placePlan" type="text" placeholder="{{'PLACENAME' | translate}}" autocapitalize="on">
-          </ion-input>
-        </ion-item>
+<form [formGroup]="planForm">
+  <ion-list>
+    <ion-item>
+      <ion-label position="stacked">{{'NAME' | translate}}</ion-label>
+      <ion-input formControlName="namePlan" type="text" placeholder="{{'PLANNAME' | translate}}" autocapitalize="on"
+        [ngClass]="{ 'is-invalid': submitted && f.namePlan.errors }">
+      </ion-input>
+      <div *ngIf="!!submitted && !!f.namePlan.errors" class="invalid-feedback">
+        <ion-text *ngIf="!!f.namePlan.errors.required">{{'REQUIREDWARNING' | translate}}</ion-text>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">{{'TYPE' | translate}}</ion-label>
+      <ion-select formControlName="typePlan" placeholder="{{'TYPENAME' | translate}}" type="text" interface="popover"
+        [ngClass]="{ 'is-invalid': submitted && f.typePlan.errors }">
+        <ion-select-option *ngFor="let typeOption of typeOptions" [value]='typeOption.value'>{{typeOption.name |
+          translate}}</ion-select-option>
+      </ion-select>
+      <div *ngIf="!!submitted && !!f.typePlan.errors" class="invalid-feedback">
+        <ion-text *ngIf="!!f.typePlan.errors.required">{{'REQUIREDWARNING' | translate}}</ion-text>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">{{'DATE' | translate}}</ion-label>
+      <ion-input formControlName="datePlan" type="date" [min]="min" max="2030-12-31" autocapitalize="on"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">{{'PLACE' | translate}}</ion-label>
+      <ion-input formControlName="placePlan" type="text" placeholder="{{'PLACENAME' | translate}}" autocapitalize="on">
+      </ion-input>
+    </ion-item>
 
-      </ion-list>
-      <ion-row class="signin">
-        <ion-col>
-          <ion-button (click)="submitData()" color="primary" shape="full" expand="block">{{'CREATEPLAN' | translate}}</ion-button>
-        </ion-col>
-      </ion-row>
-    </form>
-  </ion-card-content>
-</ion-card>
+  </ion-list>
+  <ion-row class="signin">
+    <ion-col>
+      <ion-button (click)="submitData()" color="primary" shape="full" expand="block">{{'CREATEPLAN' | translate}}</ion-button>
+    </ion-col>
+  </ion-row>
+</form>

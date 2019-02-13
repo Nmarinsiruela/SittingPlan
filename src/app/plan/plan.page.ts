@@ -44,7 +44,8 @@ export class PlanPage {
 
   async createTable() {
     const modal = await this.modalController.create({
-      component: TableModalPage
+      component: TableModalPage,
+      cssClass: 'home-plan-modal'
     });
 
     modal.present();
@@ -63,6 +64,7 @@ export class PlanPage {
         }
       }
       this.planService.setNewTables(result);
+      this.searchTables = this.tables;
     }
     // TODO: Si creas multiples mesas, indicar que puedes editar su nombre en cada una.
   }
@@ -73,7 +75,6 @@ export class PlanPage {
   }
 
   filterTables(value) {
-    console.log(value);
     return this.tables.filter((table) => {
       return table.name.toLowerCase().indexOf(value.toLowerCase()) > -1;
   });

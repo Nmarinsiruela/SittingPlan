@@ -25,7 +25,8 @@ export class HomePage {
 
   async abrirModal() {
     const modal = await this.modalController.create({
-      component: PlanModalPage
+      component: PlanModalPage,
+      cssClass: 'home-plan-modal'
     });
 
     modal.present();
