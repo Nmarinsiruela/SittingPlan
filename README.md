@@ -1,12 +1,18 @@
- ## Sitting Plan
+ # Sitting Plan (WIP)
 
- This is a simple Ionic project to create a Sitting Plan app with support to different types of plans!
+ This is an Ionic (v4) project to create a Sitting Plan app with support to different types of plans!
 
- It's also available both in English and Spanish.
+## Introduction
 
+When organizing any kind of events who requires the sitting of many people, any kind of sitting plan is required. This app's functionality would ease that process for the user.
 
-### Found Bugs
+## Features
 
-Coming Ionic 4, I found that if the menu icon I'm inserting into the app it's called 'menu', as the regular one, the icon source is ignored and instead, the icon is fetched from the internet.
+* Multi-language support: Currently Spanish and English are available.
+* Different plans supported: Weedings, baptisms, work-related meetings, etc.
+* Different table customization: Shapes and number of seats.
+* Persistent data: No need to keep the app fired up all the time!
 
-The StatusBar bug (basically, it covered the status bar of the phone in black) could be solved by removing the Status Bar Cordova plugin and taking that code out of the app, then redoing the local files.
+## Requirements
+
+* Android 5+
